@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Personal</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <h1>Lista de Personal</h1>
+    <table>
+        <tr>
+            <th>Número</th>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Sueldo</th>
+            <th>Área</th>
+            <th>Jefe del Área</th>
+        </tr>
+        <tbody>
+            <tr th:each="personal, index : ${empleados}">
+                <td th:text="${index.index + 1}"></td>
+                <td th:text="${personal.nombre}"></td>
+                <td th:text="${personal.codigoTrabajador}"></td>
+                <td th:text="${personal.sueldo}"></td>
+                <td th:text="${personal.area.nombre}"></td>
+                <td th:text="${personal.area.jefeArea}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
