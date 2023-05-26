@@ -1,11 +1,11 @@
 package com.cibertec.edu.cl2.services;
 
-import java.util.List;
-
 import com.cibertec.edu.cl2.models.Personal;
 
-public interface PersonalService {
-    List<Personal> obtenerPersonal();
+import java.util.List;
 
-    List<Personal> obtenerPersonalPorArea(Integer codigoArea);
+public interface PersonalService {
+    List<Personal> getAllPersonal();
+
+    List<Personal> findByAreaCodigo(int codigoArea);
 }

@@ -21,24 +21,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Personal implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
 
-	@Id
+    private static final long serialVersionUID = 1L;
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    Long id;
 
     @Column(name = "nombre")
-    private String nombre;
+    String nombre;
 
     @Column(name = "codigo_trabajador")
-    private String codigoTrabajador;
+    String codigoTrabajador;
 
     @Column(name = "sueldo")
-    private double sueldo;
+    double sueldo;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_area")
-    private Area area;
+    @JoinColumn(name = "codigo")
+    Area area;
 }

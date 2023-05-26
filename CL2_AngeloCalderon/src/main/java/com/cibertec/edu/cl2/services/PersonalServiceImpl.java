@@ -1,29 +1,28 @@
 package com.cibertec.edu.cl2.services;
 
-import java.util.List;
-
+import com.cibertec.edu.cl2.models.Personal;
+import com.cibertec.edu.cl2.repositories.PersonalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cibertec.edu.cl2.models.Personal;
-import com.cibertec.edu.cl2.repositories.PersonalDao;
+import java.util.List;
 
 @Service
 public class PersonalServiceImpl implements PersonalService {
-    private final PersonalDao personalDao;
+    private final PersonalRepository personalRepository;
 
     @Autowired
-    public PersonalServiceImpl(PersonalDao personalDao) {
-        this.personalDao = personalDao;
+    public PersonalServiceImpl(PersonalRepository personalRepository) {
+        this.personalRepository = personalRepository;
     }
 
     @Override
-    public List<Personal> obtenerPersonal() {
-        return personalDao.findAll();
+    public List<Personal> getAllPersonal() {
+        return personalRepository.findAll();
     }
 
     @Override
-    public List<Personal> obtenerPersonalPorArea(Integer codigoArea) {
-        return personalDao.findByAreaCodigo(codigoArea);
+    public List<Personal> findByAreaCodigo(int codigoArea) {
+        return personalRepository.findByAreaCodigo(codigoArea);
     }
 }

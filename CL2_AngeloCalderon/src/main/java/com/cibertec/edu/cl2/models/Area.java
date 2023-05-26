@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,22 +21,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Area implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
-	@Id
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo")
-    private Integer codigo;
+    int codigo;
 
-    @Column(name = "nombre")
-    private String nombre;
+    @Column(name = "nombre_area")
+    String nombreArea;
 
     @Column(name = "jefe_area")
-    private String jefeArea;
+    String jefeArea;
 
     @OneToMany(mappedBy = "area")
-    private List<Personal> personalList;
+    List<Personal> personalList;
 }

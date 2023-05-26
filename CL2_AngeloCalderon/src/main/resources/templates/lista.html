@@ -1,31 +1,31 @@
+<!-- lista.html -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Lista de Personal</title>
-	<link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
     <h1>Lista de Personal</h1>
     <table>
         <tr>
-            <th>Número</th>
+            <th>ID</th>
             <th>Nombre</th>
-            <th>Código</th>
+            <th>Código Trabajador</th>
             <th>Sueldo</th>
             <th>Área</th>
-            <th>Jefe del Área</th>
+            <th>Jefe de Área</th>
         </tr>
-        <tbody>
-            <tr th:each="personal, index : ${empleados}">
-                <td th:text="${index.index + 1}"></td>
+        <th:block th:each="personal : ${personalList}">
+            <tr>
+                <td th:text="${personal.id}"></td>
                 <td th:text="${personal.nombre}"></td>
                 <td th:text="${personal.codigoTrabajador}"></td>
                 <td th:text="${personal.sueldo}"></td>
-                <td th:text="${personal.area.nombre}"></td>
+                <td th:text="${personal.area.nombreArea}"></td>
                 <td th:text="${personal.area.jefeArea}"></td>
             </tr>
-        </tbody>
+        </th:block>
     </table>
 </body>
 </html>
