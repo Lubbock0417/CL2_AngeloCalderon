@@ -41,3 +41,6 @@ FROM Personal p
 INNER JOIN Area a ON p.codigo = a.codigo;
 
     
+  
+
+    
