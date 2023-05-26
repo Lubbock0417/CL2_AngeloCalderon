@@ -39,4 +39,3 @@ INSERT INTO Personal (id, nombre, codigo_trabajador, sueldo, codigo_area) VALUES
 SELECT p.*, a.jefe_area
 FROM Personal p
 INNER JOIN Area a ON p.codigo = a.codigo;
-    
